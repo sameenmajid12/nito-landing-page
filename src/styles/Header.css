@@ -1,0 +1,52 @@
+.header-wrapper{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding:1rem 5rem
+}
+
+.logo{
+  width: clamp(3.5rem,5vw,5rem);
+}
+.header-right{
+  display: flex;
+  column-gap: 1.5rem;
+  align-items: center;
+}
+.header-right a{
+  cursor:pointer;
+}
+.header-link{
+  color:var(--color-primary-70);
+}
+.header-link-active{
+  color:var(--color-primary);
+  font-weight: 600;
+}
+.waitlist-button{
+  border:none;
+  color:white;
+  padding:0.5rem 1rem;
+  background-color: var(--color-primary);
+  border-radius: 999px;
+  font-family: 'Nunito';
+  font-weight: 600;
+  cursor: pointer;
+}
+.waitlist-button:hover{
+  background-color: var(--color-primary-70);
+}
+.header-link-wrapper{
+  position: relative;
+}
+.active-line{
+  position: absolute;
+  bottom: -0.25rem; 
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1rem;
+  height: 0.125rem;
+  background-color: var(--color-primary);
+  border-radius: 2px;
+}
+
