@@ -1,3 +1,26 @@
 :root {
-  
+  --color-background: #FDF0FF;
+  --color-primary: #7F68FF;
+  --color-primary-70: #A48FFF;
+  --color-accent: #EA80FC;
+  --color-accent-70: #F0A2FD; 
+  --color-accent-50: #F3B8FD;
+  --color-text: #333;
+  --color-text-50:#989199;
+  --color-border:rgba(0,0,0,0.35);
+  --padding-side: clamp(6rem, 10vw, 10rem);
+}
+body{
+  font-family: 'Nunito';
+}
+@media (max-width: 1200px) {
+  :root {
+    --padding-side: clamp(2rem, 5vw, 4rem);
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --padding-side: 1rem;
+  }
 }
