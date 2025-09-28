@@ -1,45 +1,35 @@
-import { useState } from "react";
 import "../styles/header.css";
-function Header({ windowTop, checkActive, scrollToSection }) {
-  const activeLine = <span className="active-line" />;
+function Header({ scrollToSection, setHeaderMenuVisible }) {
   return (
     <div className="header-wrapper">
       <img className="logo" src="/assets/logo.png" />
+      <img onClick={()=>setHeaderMenuVisible(true)} className="menu-icon" src="/assets/menu.png"></img>
       <div className="header-right">
         <div className="header-link-wrapper">
           <a
             onClick={() => scrollToSection("home")}
-            className={
-              checkActive("home") ? "header-link-active" : "header-link"
-            }
+            className={"header-link-active"}
           >
             Home
           </a>
-          {checkActive("home") && activeLine}
         </div>
         <div className="header-link-wrapper">
           <a
             onClick={() => scrollToSection("howitworks")}
-            className={
-              checkActive("howitworks") ? "header-link-active" : "header-link"
-            }
+            className={"header-link-active"}
           >
             How it works
           </a>
-          {checkActive("howitworks") && activeLine}
         </div>
         <div className="header-link-wrapper">
           <a
             onClick={() => scrollToSection("features")}
-            className={
-              checkActive("features") ? "header-link-active" : "header-link"
-            }
+            className={"header-link-active"}
           >
             Features
           </a>
-          {checkActive("features") && activeLine}
         </div>
-        <button className="waitlist-button">Join the waitlist</button>
+        <button onClick={()=>scrollToSection("joinwaitlist")} className="waitlist-button">Join the waitlist</button>
       </div>
     </div>
   );
