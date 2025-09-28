@@ -152,6 +152,7 @@
 .demo-mobile-wrapper {
   position: absolute;
   bottom: -8rem;
+  animation: slideInFromBottom 1.5s ease-out forwards
 }
 .demo-mobile {
   position: relative;
@@ -167,7 +168,8 @@
   left: -2.5rem;
   z-index: 1;
   border-radius: 999px;
-  animation: slideInFromLeft 1s ease-out forwards;
+  opacity: 0;
+  animation: slideInFromLeft 1s ease-out 1.5s forwards;
 }
 .mobile-decoration-shape2 {
   position: absolute;
@@ -178,7 +180,8 @@
   background-color: var(--color-accent-50);
   border-radius: 10px;
   transform: rotate(-15deg);
-  animation: slideInFromRight 1s ease-in forwards;
+  opacity: 0;
+  animation: slideInFromRight 1.5s ease-in 1.5s forwards;
 }
 .mobile-input-label {
   color: var(--color-primary);
@@ -251,7 +254,7 @@
 }
 @keyframes slideInFromLeft {
   from {
-    transform: translateX(-200%);
+    transform: translateX(-250%);
     opacity: 0;
   }
   to {
@@ -263,6 +266,7 @@
   0% {
     transform: translateX(250%) rotate(15deg);
     opacity: 0;
+    
   }
   70% {
     opacity: 0.25;
@@ -288,5 +292,13 @@
   }
   100%{
     transform: translateX(-20%);
+  }
+}
+@keyframes slideInFromBottom {
+  from{
+    transform: translateY(100%);
+  }
+  to{
+    transform: translateY(0);
   }
 }
