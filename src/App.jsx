@@ -6,57 +6,77 @@ import HowItWorks from "./components/HowItWorks";
 import Features from "./components/Features";
 import Footer from "./components/Footer";
 import JoinWaitlist from "./components/JoinWaitlist";
+import HeaderMenu from "./components/HeaderMenu";
 function App() {
   const [active, setActive] = useState("home");
-  const [windowTop, setWindowTop] = useState();
-  useEffect(() => {
-    const sections = document.querySelectorAll("section");
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActive(entry.target.id);
-          }
-        });
-      },
-      { threshold: 0.2 }
-    );
-    sections.forEach((section) => observer.observe(section));
-    return () => {
-      sections.forEach((section) => observer.unobserve(section));
-    };
-  }, []);
-  useEffect(() => {
-    const handleScrollTop = () => {
-      setWindowTop(window.scrollY === 0);
-    };
-    window.addEventListener("scroll", handleScrollTop);
-    return () => {
-      window.removeEventListener("scroll", handleScrollTop);
-    };
-  }, []);
-  const checkActive = (route) => active === route;
+  const [headerMenuVisible, setHeaderMenuVisible] = useState(false);
+  const [email, setEmail] = useState("");
+  const [loadingSubmission, setLoadingSubmission] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const submitDisabled = loadingSubmission || submitted || email.trim() === "";
+  const isValidEmail = () => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  const submitEmail = async () => {
+    if (!isValidEmail(email)) {
+      alert("Please enter a valid email!");
+      return;
+    }
+    setLoadingSubmission(true);
+    try {
+      const formData = new FormData();
+      formData.append("email", email);
+      await fetch("https://formspree.io/f/meorevjl", {
+        method: "POST",
+        body: formData,
+        headers: { Accept: "application/json" },
+      });
+      setEmail("");
+      setSubmitted(true);
+    } catch (e) {
+      console.error(e);
+    } finally {
+      setLoadingSubmission(false);
+    }
+  };
   const scrollToSection = (sectionId) => {
     const section = document.getElementById(sectionId);
-    if (!checkActive(sectionId)) {
-      window.scrollTo({
-        top: section.offsetTop - 72,
-        behavior: "smooth",
-      });
-    }
+    window.scrollTo({
+      top: section.offsetTop-50,
+      behavior: "smooth",
+    });
   };
   return (
     <div className="main-wrapper">
+      {headerMenuVisible && (
+        <HeaderMenu
+          setHeaderMenuVisible={setHeaderMenuVisible}
+          scrollToSection={scrollToSection}
+        />
+      )}
       <Header
-        checkActive={checkActive}
         scrollToSection={scrollToSection}
-        windowTop={windowTop}
+        setHeaderMenuVisible={setHeaderMenuVisible}
       />
-      <Hero />
-      <HowItWorks />
-      <Features />
-      <JoinWaitlist />
-      <Footer />
+      <div className="content-wrapper">
+        <Hero
+          email={email}
+          setEmail={setEmail}
+          loadingSubmission={loadingSubmission}
+          submitted={submitted}
+          submitEmail={submitEmail}
+          submitDisabled={submitDisabled}
+        />
+        <HowItWorks />
+        <Features />
+        <JoinWaitlist
+          email={email}
+          setEmail={setEmail}
+          loadingSubmission={loadingSubmission}
+          submitted={submitted}
+          submitEmail={submitEmail}
+          submitDisabled={submitDisabled}
+        />
+        <Footer />
+      </div>
     </div>
   );
 }
