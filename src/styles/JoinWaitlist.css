@@ -1,0 +1,89 @@
+.joinwaitlist-page {
+  padding: 3rem var(--padding-side);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 4rem;
+}
+.joinwaitlist-text-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.joinwaitlist-header {
+  font-size: clamp(2rem, 3.5vw, 3.75rem);
+  color: var(--color-text);
+}
+.joinwaitlist-sub-header {
+  font-size: clamp(1.125rem, 1.75vw, 1.5rem);
+  color: var(--color-text-50);
+  font-weight: 400;
+}
+.joinwaitlist-input-wrapper {
+  width: clamp(35rem, 50vw, 50rem);
+  position: relative;
+}
+.joinwaitlist-input {
+  width: 100%;
+  height: clamp(3.25rem, 4vw, 4rem);
+  border: none;
+  box-shadow: 0px 0px 10px var(--color-accent-25);
+  border-radius: 999px;
+  outline: none;
+  padding-left: 1.875rem;
+  font-size: 1rem;
+  font-family: "Nunito";
+  box-sizing: border-box;
+  color: var(--color-text);
+}
+.joinwaitlist-input:disabled{
+  background-color: white;
+}
+.joinwaitlist-input::placeholder {
+  color: rgba(0, 0, 0, 0.25);
+}
+.joinwaitlist-button {
+  position: absolute;
+  right: 0;
+  background-color: var(--color-accent-70);
+  height: clamp(3.25rem, 4vw, 4rem);
+  border: none;
+  padding: 0 2.5rem;
+  font-size: 1rem;
+  font-family: "Nunito";
+  color: white;
+  border-radius: 999px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.joinwaitlist-button:hover {
+  background-color: var(--color-accent-50);
+}
+
+@media (max-width: 625px) {
+  .joinwaitlist-page {
+    row-gap: 2rem;
+  }
+  .joinwaitlist-input-wrapper {
+    width: clamp(21.5rem, 80vw, 35rem);
+  }
+  .joinwaitlist-input {
+    padding-left: 1.25rem;
+    height: clamp(2.5rem, 4vw, 3.25rem);
+    font-size: 0.75rem;
+  }
+  .joinwaitlist-button {
+    font-size: 0.75rem;
+    height: clamp(2.5rem, 4vw, 3.25rem);
+    padding:0 1.75rem;
+  }
+  .joinwaitlist-header {
+    font-size: clamp(1.25rem, 3.5vw, 2rem);
+  }
+  .joinwaitlist-sub-header {
+    font-size: clamp(0.75rem, 1.5vw, 1.125rem);
+  }
+  .joinwaitlist-button {
+  }
+}
