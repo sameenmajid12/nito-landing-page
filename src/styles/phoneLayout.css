@@ -1,0 +1,83 @@
+.phone-layout-wrapper {
+  padding: 7.5px;
+  background-color: #313131;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+.phone-layout-wrapper-hero {
+  border-radius: 35px;
+}
+.phone-layout-wrapper-howitworks {
+  border-radius: 35px;
+}
+.demo-image {
+  width: clamp(16rem, 18vw, 20rem);
+  border-radius: 27.5px;
+}
+.demo-image-howitworks {
+  width: clamp(14rem, 18vw, 18rem);
+  border-radius: 27.5px;
+}
+.notch {
+  position: absolute;
+  background-color: #313131;
+  height: clamp(1rem, 2vw, 1.5rem);
+  top: 1.25rem;
+  border-radius: 99px;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  padding-right: 0.5rem;
+  box-sizing: border-box;
+}
+.notch-hero {
+  width: clamp(5rem, 35%, 7rem);
+}
+.notch-howitworks {
+  width: clamp(5rem, 35%, 7rem);
+}
+.camera {
+  width: clamp(0.5rem, 1vw, 0.75rem);
+  height: clamp(0.5rem, 1vw, 0.75rem);
+  background-color: #464646;
+  border-radius: 99px;
+}
+
+@media (max-width: 1050px) {
+  .demo-image {
+    width: clamp(14rem, 20vw, 16rem);
+    border-radius: 20px;
+  }
+  .demo-image-howitworks {
+    border-radius: 20px;
+  }
+  .phone-layout-wrapper-hero,
+  .phone-layout-wrapper-howitworks {
+    border-radius: 27.5px;
+  }
+}
+@media (max-width: 1005px) {
+  .demo-image-howitworks {
+    width: clamp(11rem, 20vw, 14rem);
+  }
+}
+@media (max-width: 875px) {
+  .demo-image {
+    width: clamp(11rem, 25vw, 13rem);
+  }
+  .phone-layout-wrapper {
+    
+  }
+}
+@media (max-width: 750px) {
+  .demo-image-howitworks {
+    width: clamp(14rem, 20vw, 16rem);
+  }
+  .notch-hero {
+    width: clamp(3.5rem, 8vw, 5rem);
+    height: clamp(0.875rem, 1.5vw, 1rem);
+  }
+  
+}
