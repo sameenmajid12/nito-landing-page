@@ -54,7 +54,7 @@
 .input::placeholder {
   color: rgba(0, 0, 0, 0.35);
 }
-.input:disabled{
+.input:disabled {
   background-color: white;
 }
 .input-button {
@@ -147,10 +147,11 @@
   height: 3px;
   background-color: var(--color-primary);
   border-radius: 999px;
+  animation: moveLeftToRight 4s infinite linear;
 }
 .demo-mobile-wrapper {
   position: absolute;
-  bottom:-8rem;
+  bottom: -8rem;
 }
 .demo-mobile {
   position: relative;
@@ -159,13 +160,14 @@
 }
 .mobile-decoration-shape1 {
   position: absolute;
-  width: 5rem;
-  height: 5rem;
+  width: 2.5rem;
+  height: 2.5rem;
   background-color: var(--color-primary);
-  top: 2rem;
-  left: -3.5rem;
+  top: 3.5rem;
+  left: -2.5rem;
   z-index: 1;
   border-radius: 999px;
+  animation: slideInFromLeft 1s ease-out forwards;
 }
 .mobile-decoration-shape2 {
   position: absolute;
@@ -176,13 +178,12 @@
   background-color: var(--color-accent-50);
   border-radius: 10px;
   transform: rotate(-15deg);
+  animation: slideInFromRight 1s ease-in forwards;
 }
-.mobile-input-label{
+.mobile-input-label {
   color: var(--color-primary);
 }
-.hero-submitted-icon{
-  
-}
+
 @media (max-width: 1050px) {
   .hero-right {
     top: 15rem;
@@ -246,5 +247,46 @@
   }
   .input::placeholder {
     color: rgba(0, 0, 0, 0.25);
+  }
+}
+@keyframes slideInFromLeft {
+  from {
+    transform: translateX(-200%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0) scale(2);
+    opacity: 1;
+  }
+}
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(250%) rotate(15deg);
+    opacity: 0;
+  }
+  70% {
+    opacity: 0.25;
+  }
+  100% {
+    transform: translateX(0) rotate(-15deg);
+    opacity: 1;
+  }
+}
+@keyframes moveLeftToRight {
+  0%{
+        transform: translateX(-20%);
+
+  }
+  25%{
+    transform: translateX(0);
+  }
+  50%{
+    transform: translateX(20%);
+  }
+  75%{
+    transform: translateX(0);
+  }
+  100%{
+    transform: translateX(-20%);
   }
 }
