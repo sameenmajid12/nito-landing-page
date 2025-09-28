@@ -1,0 +1,105 @@
+.features-page {
+  padding: 0 var(--padding-side);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5rem;
+  row-gap: 5rem;
+}
+.features-header {
+  font-size: clamp(1.25rem, 2.5vw, 2rem);
+  color: var(--color-text);
+}
+.features-content-wrapper {
+  width: 70%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3rem;
+}
+.feature-block-wrapper {
+  width: 100%;
+  border: 1px solid var(--color-border);
+  padding: 0 2rem;
+  box-sizing: border-box;
+  position: relative;
+  border-radius: 1rem;
+  height: clamp(11.25rem, 15vw, 12.5rem);
+  display: flex;
+  align-items: center;
+}
+.feature-block-icon-container {
+  position: absolute;
+  width: 5rem;
+  height: 5rem;
+  background-color: var(--color-background);
+  top: 0;
+  right: 2rem;
+  transform: translateY(-50%);
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.feature-block-icon {
+  width: 2.5rem;
+  opacity: 0.5;
+}
+.feature-block-text-wrapper {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.25rem;
+}
+.feature-block-text-wrapper h3 {
+  color: var(--color-text);
+  font-size: clamp(1.375rem, 1.75vw, 1.625rem);
+  text-wrap: nowrap;
+}
+.feature-block-text-wrapper p {
+  color: var(--color-text-50);
+  font-size: clamp(0.875rem, 1.25vw, 1.25rem);
+}
+
+@media (max-width: 1125px) {
+  .features-content-wrapper {
+    width: 85%;
+  }
+}
+@media (max-width: 950px) {
+  .features-content-wrapper {
+    width: 95%;
+  }
+}
+@media (max-width: 750px) {
+  .feature-block-icon-container {
+    width: 4rem;
+    height: 4rem;
+    right: 50%;
+    transform: translateX(50%) translateY(-50%);
+  }
+  .feature-block-text-wrapper h3 {
+    text-align: center;
+  }
+  .feature-block-text-wrapper p {
+    text-align: center;
+  }
+  .feature-block-icon {
+    width: 2rem;
+  }
+  .features-content-wrapper {
+    width: 70%;
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 625px) {
+  .feature-block-text-wrapper h3 {
+    font-size:clamp(1.25rem,1.75vw, 1.375rem);
+  }
+  .feature-block-text-wrapper p {
+      font-size: clamp(0.75rem, 1.25vw, 0.875rem);
+  }
+  .feature-block-wrapper{
+      height: clamp(10rem, 15vw, 11.25rem);
+      padding-top:1rem;
+  }
+}
