@@ -12,6 +12,15 @@
 .phone-layout-wrapper-howitworks {
   border-radius: 35px;
 }
+.phone-layout-placeholder{
+  background-color: var(--color-background);
+  top:7.5px;
+  bottom:7.5px;
+  position: absolute;
+  left:50%;
+  transform: translateX(-50%);
+  z-index: 0;
+}
 .demo-image {
   width: clamp(16rem, 18vw, 20rem);
   border-radius: 27.5px;
@@ -19,6 +28,7 @@
 .demo-image-howitworks {
   width: clamp(14rem, 18vw, 18rem);
   border-radius: 27.5px;
+  z-index: 50;
 }
 .notch {
   position: absolute;
@@ -31,6 +41,7 @@
   justify-content: end;
   padding-right: 0.5rem;
   box-sizing: border-box;
+  z-index: 100;
 }
 .notch-hero {
   width: clamp(5rem, 35%, 7rem);
@@ -68,7 +79,6 @@
     width: clamp(11rem, 25vw, 13rem);
   }
   .phone-layout-wrapper {
-    
   }
 }
 @media (max-width: 750px) {
@@ -79,5 +89,26 @@
     width: clamp(3.5rem, 8vw, 5rem);
     height: clamp(0.875rem, 1.5vw, 1rem);
   }
-  
+}
+@media (max-width: 500px) {
+  .phone-layout-wrapper{
+    border-radius: 25px;
+  }
+  .demo-image, .demo-image-howitworks{
+    border-radius: 20px;
+  }
+  .demo-image-howitworks {
+    width: clamp(11rem, 14vw, 12.5rem);
+  }
+  .phone-layout-wrapper-howitworks, .phone-layout-wrapper-hero{
+    padding:5px;
+  }
+  .phone-layout-placeholder{
+    top:5px;
+    bottom:5px;
+  }
+  .notch-howitworks {
+    width: clamp(3.5rem, 8vw, 5rem);
+    height: clamp(0.875rem, 1.5vw, 1rem);
+  }
 }

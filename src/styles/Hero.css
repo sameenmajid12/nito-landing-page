@@ -153,7 +153,7 @@
   position: absolute;
   bottom: -8rem;
   opacity: 0;
-  animation: slideInFromBottom 1.5s ease-out 0.5s forwards;
+  animation: slideInFromBottom 1.5s ease-out 0.1s forwards;
 }
 .demo-mobile {
   position: relative;
@@ -295,13 +295,13 @@
 }
 @keyframes slideInFromBottom {
   0% {
-    transform: translateY(100%);
+    transform: translateY(100%) scale(0.5);
   }
   1% {
     opacity: 1;
   }
   100% {
-    transform: translateY(0);    opacity: 1;
+    transform: translateY(0) scale(1);    opacity: 1;
 
   }
 }
